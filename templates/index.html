@@ -1,0 +1,25 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>OCR Demo</title>  
+</head>  
+<body style="text-align:center;">  
+    <h2>上传图片，识别文字</h2>  
+    <form action="/upload" method="post" enctype="multipart/form-data">  
+        <input type="file" name="file" accept="image/*">  
+        <input type="submit" value="上传">  
+    </form>  
+    <div>
+        {% if image_url %}  
+        <h2>当前图片</h2>  
+        <img src="{{ image_url }}" alt="上传图片，识别文字" style="max-width: 500px;">  
+        <form action="/delete" method="post" style="display: inline-block;">  
+            <input type="submit" value="删除图片">  
+        </form>  
+	<br />
+        <textarea rows="20" cols="100">{{ current_text }}</textarea>
+        {% endif %}  
+    </div>
+</body>  
+</html>
